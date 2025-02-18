@@ -1,0 +1,71 @@
+{
+    "sheet_controls": {
+        "highlight_processed_rows": true,
+        "highlight_color": {
+            "red": 0.95,
+            "green": 0.95,
+            "blue": 0.95
+        },
+        "input_sheet_name": "input",
+        "output_sheet_name": "output",
+        "write_headers": true
+    },
+    
+    "inference_controls": {
+        "active_prompt": "startup_ceo",
+        "model": "llama3.3-70b",
+        "temperature": 0,
+        "prompts": {
+            "startup_ceo": {
+                "description": "Identify startup CEOs and tech leaders",
+                "text": "Analyze candidate for Cerebras event. BE SPECIFIC about why accepted/rejected.\n\nProfile: {profile}\nCompany Info: {company_info}\n\nACCEPT if ANY are true:\n- CEO/CTO/Founder at tech/AI company\n- Technical role at FAANG/big tech\n- Machine learning/AI research role\n- Currently leads technical team\n\nREJECT everyone else.\n\nReturn strict JSON with reasoning:\n{{\n    \"name\": \"\", \n    \"title\": \"\",\n    \"company\": \"\",\n    \"location\": \"\",\n    \"priority\": \"accept/reject\",\n    \"priority_reasoning\": \"* [Specific reason 1]\\n* [Specific reason 2]\"\n}}",
+                "output_format": {
+                    "name": true,
+                    "title": true,
+                    "company": true,
+                    "location": true,
+                    "priority": true,
+                    "priority_reasoning": true
+                }
+            }
+        }
+    },
+    
+    "response_format": {
+        "required_fields": [
+            "name",
+            "company",	
+            "title",
+            "email",
+            "linkedin",
+            "priority",
+            "priority_reasoning"
+        ],
+        "optional_fields": [
+            "title",
+            "company",
+            "location",
+            "email_draft"
+        ],
+        "email_template": true,
+        "default_values": {
+            "name": "",
+            "title": "",
+            "company": "",
+            "location": "",
+            "priority": "reject",
+            "priority_reasoning": "* No specific criteria met\n* Profile lacks required qualifications"
+        }
+    },
+
+    "scraping_controls": {
+        "scan_for_linkedin": true,
+        "research_companies": true,
+        "common_domains": [
+            "gmail.com",
+            "yahoo.com",
+            "hotmail.com",
+            "outlook.com"
+        ]
+    }
+}

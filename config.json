@@ -1,0 +1,12 @@
+{
+    "column_names": {
+        "email": ["email", "email address", "contact email"],
+        "linkedin": ["linkedin", "linkedin url", "linkedin profile"],
+        "company": ["company", "employer", "What company do you work for?"],
+        "title": ["title", "role", "position", "Current Role"],
+        "name": ["name", "full name", "candidate name"],
+        "location": ["location", "city", "region"],
+        "department": ["department", "team", "division"]
+    },
+    "scan_columns_for_linkedin": true
+}
